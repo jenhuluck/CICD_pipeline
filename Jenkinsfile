@@ -24,8 +24,7 @@ pipeline{
         }
 		stage('Publish to Nexus'){
 			steps{
-				nexusArtifactUploader artifacts: [[artifactId: 'jenhuDevOpsLab', classifier: '', file: 'target/jenhuDevOpsLab-0.0.4-SNAPSHOT.war', type: 'war']], credentialsId: '', groupId: 'com.jenhudevopslab', nexusUrl: '172.20.10.42:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'jenhuDevOpsLab-SNAPSHOT', version: '0.0.4-SNAPSHOT'
-			}
+				nexusArtifactUploader artifacts: [[artifactId: 'jenhuDevOpsLab', classifier: '', file: 'target/jenhuDevOpsLab-0.0.4-SNAPSHOT.war', type: 'war']], credentialsId: 'af458c0a-c0cf-408c-9059-e1279d4a125f', groupId: 'com.jenhudevopslab', nexusUrl: '54.226.163.178:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'jenhuDevOpsLab-SNAPSHOT', version: '0.0.4-SNAPSHOT'
 		}
         // Stage3 : Publish the source code to Sonarqube
         stage('Deploy'){
