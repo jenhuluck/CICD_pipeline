@@ -35,7 +35,7 @@ pipeline{
 				nexusArtifactUploader artifacts: 
 				[[artifactId: "${ArtifactId}",
 				classifier: '', 
-				file: 'target/jenhuDevOpsLab-0.0.4-SNAPSHOT.war', 
+				file: "target/${ArtifactId}-${Version}.war", 
 				type: 'war']], 
 				credentialsId: 'af458c0a-c0cf-408c-9059-e1279d4a125f',
 				groupId: "${GroupId}", 
