@@ -30,6 +30,8 @@ pipeline{
         }
 		stage('Publish to Nexus'){
 			steps{
+				script {
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
 				nexusArtifactUploader artifacts: 
 				[[artifactId: "${ArtifactId}",
 				classifier: '', 
@@ -40,8 +42,9 @@ pipeline{
 				nexusUrl: '54.226.163.178:8081', 
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
-				repository: 'jenhuDevOpsLab-SNAPSHOT', 
+				repository: "${NexusRepo}", 
 				version: "${Version}"
+				}
 			}
 		}
         // Stage3 : Publish the source code to Sonarqube
