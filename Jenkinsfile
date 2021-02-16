@@ -50,7 +50,7 @@ pipeline{
 
         stage('Deploy to Tomcat'){
 			steps {
-				echo 'deploying...'
+				echo 'deploying to Tomcat...'
 				sshPublisher(publishers: 
 				[sshPublisherDesc(configName: 'Ansible_Controller', 
 				transfers: [
@@ -71,7 +71,7 @@ pipeline{
 		
 		stage('Deploy to Docker'){
 			steps {
-				echo 'deploying...'
+				echo 'deploying to docker...'
 				sshPublisher(publishers: 
 				[sshPublisherDesc(configName: 'Ansible_Controller', 
 				transfers: [
